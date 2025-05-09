@@ -113,7 +113,7 @@ function renderList(data) {
           throw new Error(error);
         });
     });
-
+		moviesContainer.innerHTML = '';
     filmFragment.append(filmBox);
   });
 
@@ -153,7 +153,6 @@ topicBtns.forEach((button) => {
 searchInput.addEventListener("input", (e) => {
   if (e.target.value.trim() !== "") {
     filteredMoviesData = moviesData.filter((film) => {
-			moviesContainer.innerHTML = '';
       return film.Title.toLowerCase().includes(e.target.value.toLowerCase());
     });
     renderList(filteredMoviesData);
