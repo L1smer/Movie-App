@@ -10,7 +10,13 @@ let filteredMoviesData = [];
 let filmDescription = [];
 
 function removeModal() {
-	filmModal.classList.add("hidden");
+  filmModal.classList.add("hidden");
+  document.body.style.overflow = "auto";
+}
+
+function openModal() {
+  filmModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
 }
 
 function formatYear(yearStr) {
@@ -84,25 +90,24 @@ function renderList(data) {
 						</div>
 					`;
 
-					filmModal.addEventListener("click", (e) => {
+          filmModal.addEventListener("click", (e) => {
             if (e.target === filmModal) {
-              removeModal()
+              removeModal();
             }
           });
 
-					document.addEventListener('keydown', e => {
-						if (e.key === 'Escape' && !filmModal.classList.contains("hidden")) {
-							removeModal()
-						}
-					})
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !filmModal.classList.contains("hidden")) {
+              removeModal();
+            }
+          });
 
           const closeBtn = document.querySelector(".close-button");
 
           closeBtn.addEventListener("click", (e) => {
-            removeModal()
+            removeModal();
           });
-
-          filmModal.classList.remove("hidden");
+          openModal();
         })
         .catch((error) => {
           throw new Error(error);

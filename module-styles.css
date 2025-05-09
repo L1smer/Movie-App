@@ -15,6 +15,13 @@
   z-index: 10;
 }
 
+body.modal-open,
+html.modal-open {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+}
+
 .modal-content {
   background-color: #1e1e1e;
   color: #e0e0e0;
@@ -49,4 +56,33 @@
   font-size: 28px;
   color: #ccc;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    padding: 16px;
+  }
+
+  .modal-details {
+    gap: 12px;
+  }
+
+  .modal-details img {
+    max-width: 100%;
+  }
+
+  .modal-info {
+    font-size: 14px;
+    line-height: 1.4;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .close-button {
+    font-size: 24px;
+    top: 10px;
+    right: 12px;
+  }
 }
