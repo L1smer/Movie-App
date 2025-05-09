@@ -19,6 +19,12 @@ function openModal() {
   document.body.style.overflow = "hidden";
 }
 
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !filmModal.classList.contains("hidden")) {
+    removeModal();
+  }
+});
+
 function formatYear(yearStr) {
   if (!yearStr) return "Unknown";
 
@@ -42,10 +48,11 @@ function formatYear(yearStr) {
 function renderList(data) {
   moviesContainer.innerHTML = "";
 
-  if (filteredMoviesData.length === 0) {
+  if (data.length === 0) {
     const noMatch = document.createElement("p");
     noMatch.textContent = "No result for your search";
     moviesContainer.append(noMatch);
+    return;
   }
 
   data.forEach((film) => {
@@ -66,7 +73,9 @@ function renderList(data) {
       let filmDescriptionID = film.imdbID;
 
       fetch(`https://www.omdbapi.com/?apikey=564727fa&i=${filmDescriptionID}`)
-        .then((response) => response.json())
+        .then((response) => {
+          return response.json();
+        })
         .then((data) => {
           filmDescription = data;
 
@@ -96,12 +105,6 @@ function renderList(data) {
             }
           });
 
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !filmModal.classList.contains("hidden")) {
-              removeModal();
-            }
-          });
-
           const closeBtn = document.querySelector(".close-button");
 
           closeBtn.addEventListener("click", (e) => {
@@ -113,7 +116,7 @@ function renderList(data) {
           throw new Error(error);
         });
     });
-		moviesContainer.innerHTML = '';
+
     filmFragment.append(filmBox);
   });
 
@@ -121,6 +124,7 @@ function renderList(data) {
 }
 
 function fetchData(type = `star`) {
+	moviesContainer.innerHTML = "<p>Loading...</p>";
   fetch(`https://www.omdbapi.com/?apikey=564727fa&s=${type}`)
     .then((response) => response.json())
     .then((data) => {
