@@ -84,3 +84,19 @@ html.modal-open {
     right: 12px;
   }
 }
+
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 350px;
+    padding: 16px;
+  }
+
+  .modal-details {
+    gap: 10px;
+  }
+
+  .modal-details img {
+    max-width: 150px;
+  }
+
+}
