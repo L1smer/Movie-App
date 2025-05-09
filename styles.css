@@ -1,4 +1,5 @@
-/* General body setup */
+@import url(./module-styles.css);
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -11,7 +12,6 @@ body {
   align-items: center;
 }
 
-/* Header area */
 #header {
   width: 100%;
   max-width: 800px;
@@ -19,7 +19,6 @@ body {
   text-align: center;
 }
 
-/* Suggested topics */
 #suggested-topics {
   display: flex;
   gap: 10px;
@@ -38,12 +37,16 @@ body {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+#suggested-topics .active-button {
+  border: 1px solid white;
+	background-color: #333;
+}
+
 #suggested-topics button:hover {
   background-color: #333;
   transform: scale(1.05);
 }
 
-/* Search input + button */
 #search-input {
   width: 60%;
   max-width: 400px;
@@ -56,23 +59,10 @@ body {
   margin-bottom: 20px;
 }
 
-#search-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  font-size: 16px;
-  background-color: #5bc0de;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
 #search-button:hover {
   background-color: #31b0d5;
 }
 
-/* Movies container */
 #movies-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -81,17 +71,17 @@ body {
   max-width: 1000px;
 }
 
-/* Single movie card */
 #movies-container div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	gap: 10px;
   background-color: #1f1f1f;
   border: 1px solid #333;
-  
   border-radius: 8px;
   text-align: center;
+	cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -99,14 +89,12 @@ body {
   transform: scale(1.05);
 }
 
-/* Movie poster */
 #movies-container img {
-  max-width: 280px;
-  height: auto;
+	flex: 1 0;
   border-radius: 6px;
+	max-height: 370px;
 }
 
-/* Movie title */
 #movies-container h4 {
   margin: 10px 0 5px;
   font-size: 18px;
