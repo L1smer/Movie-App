@@ -2,7 +2,7 @@
 
 Movie Explorer is a responsive and interactive movie search app built with **HTML**, **CSS**, and **JavaScript**, using the **OMDb API**. It allows users to browse and discover movies by topic, search by title, and view detailed info via a modal popup.
 
-![Preview](./preview.png) <!-- Add a real screenshot here from your app -->
+![Preview](./preview.png)
 
 ---
 
