@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <title>Movie App</title>
   </head>
   <body>
     <header id="header">
+      <button id="show-favorites-btn">⭐ Favorites</button>
       <div id="suggested-topics">
-        <button class="suggested active-button" data-topic="star">Star Wars</button>
+        <button class="suggested active-button" data-topic="star">
+          Star Wars
+        </button>
         <button class="suggested" data-topic="love">Love Stories</button>
-				<button class="suggested" data-topic="man">Marvel &amp; DC</button>
+        <button class="suggested" data-topic="man">Marvel &amp; DC</button>
         <button class="suggested" data-topic="dream">Dream Worlds</button>
         <button class="suggested" data-topic="hero">Superheroes</button>
       </div>
@@ -22,9 +25,9 @@
         placeholder="Search for a movie..."
       />
     </header>
-    <div id="movies-container"></div>
-		<div id="movie-modal" class="hidden"></div>
+    <div id="movies-container" class="movie-flex"></div>
+    <div id="movie-modal" class="hidden"></div>
 
-    <script src="/script.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
